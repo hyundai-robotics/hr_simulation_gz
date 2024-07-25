@@ -51,7 +51,7 @@ This guide provides instructions for downloading and executing the ros2-humble-d
 
   ```
   cd  ~/ros2_ws/src
-  git clone https://github.com/...
+  git clone https://github.com/hyundai-robotics/hr_simulation_gz.git
   ```
 
 ### dependency package install:
