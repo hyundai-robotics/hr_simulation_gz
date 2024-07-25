@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/LogManager.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct LogManager_Request {
+      int32 n_item;
+
+      string cat_p;
+
+      int32 id_min;
+
+      int32 id_max;
+
+      string ts_min;
+
+      string ts_max;
+    };
+    struct LogManager_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

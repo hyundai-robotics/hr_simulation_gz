@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/FileList.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct FileList_Request {
+      string path;
+
+      boolean incl_file;
+
+      boolean incl_dir;
+    };
+    struct FileList_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

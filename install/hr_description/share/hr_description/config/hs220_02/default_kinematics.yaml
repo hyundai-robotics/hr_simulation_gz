@@ -1,0 +1,49 @@
+kinematics:
+  shoulder:
+    x:     0
+    y:     0
+    z:     0
+    roll:  0
+    pitch: 0
+    yaw:   0
+  upper_arm:
+    x:     0.312
+    y:     0
+    z:     0.608
+    roll:  -1.57079632
+    pitch: 0
+    yaw:   0
+    
+  forearm:
+    x:     -1.108
+    y:     0
+    z:     0
+    roll:  0
+    pitch: 0
+    yaw:   0
+  wrist_1:
+    x:     -0.228
+    y:     -1.238 
+    z:     0.0485
+    roll:  -1.57079632 #roll 회전
+    pitch: -1.57079632
+    yaw:   0
+  wrist_2:
+    x:     0
+    y:     0
+    z:     0
+    roll:  0
+    pitch: 1.57079632 #Pitch회전
+    yaw:   0 
+    
+  wrist_3:
+    x:     0.22
+    y:     0
+    z:     0
+    roll:  0
+    pitch: 1.57079632
+    yaw:   0 #roll 회전
+  hash: calib_1935737212149401527
+
+#이쪽이 회전하는 축을 변경하는 쪽
+#hr_macro.xacro가 모양을 변경하는쪽

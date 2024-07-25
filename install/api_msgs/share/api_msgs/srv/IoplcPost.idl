@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/IoplcPost.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct IoplcPost_Request {
+      string name;
+
+      float value;
+    };
+    struct IoplcPost_Response {
+      string message;
+
+      int32 val;
+
+      boolean success;
+    };
+  };
+};

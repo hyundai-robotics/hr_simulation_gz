@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/ProgramCnt.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct ProgramCnt_Request {
+      int32 pno;
+
+      int32 sno;
+
+      int32 fno;
+
+      int32 ext_sel;
+    };
+    struct ProgramCnt_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

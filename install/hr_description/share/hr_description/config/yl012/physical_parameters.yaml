@@ -1,0 +1,82 @@
+dh_parameters:
+  d6: 165.6750
+  d5: 197.9260
+  d4: 366.3600
+  d3: 0.0
+  d2: -384.6900
+  d1: 279.4000
+  a6: 0.0
+  a5: 0.0
+  a4: 0.0
+  a3: 0.0
+  a2: 674.0
+  a1: 0.0
+
+offsets:
+  shoulder_offset: -0.1348
+  elbow_offset: -0.2675
+
+inertia_parameters:
+  base_mass: 40.0
+  shoulder_mass: 10.557863
+  upper_arm_mass: 13.543403
+  upper_arm_inertia_offset: 0.175
+  forearm_mass: 5.336653
+  wrist_1_mass: 3.590355
+  wrist_2_mass: 2.695793
+  wrist_3_mass: 1.094456
+
+  shoulder_radius: 0.060
+  upper_arm_radius: 0.054
+  elbow_radius: 0.060
+  forearm_radius: 0.040
+  wrist_radius: 0.045
+
+  links:
+    base:
+      radius: 0.075
+      length: 0.038
+    shoulder:
+      radius: 0.075
+      length: 0.178
+    upperarm:
+      radius: 0.075
+      length: 0.24365
+    forearm:
+      radius: 0.075
+      length: 0.2132
+    wrist_1:
+      radius: 0.075
+      length: 0.12
+    wrist_2:
+      radius: 0.075
+      length: 0.12
+    wrist_3:
+      radius: 0.032
+      length: 0.04
+
+  center_of_mass:
+    shoulder_cog:
+      x: 0.000051
+      y: 0.059859
+      z: 0.231148
+    upper_arm_cog:
+      x: -0.000443
+      y: 0.174470
+      z: 0.578073
+    forearm_cog:
+      x: 0.031777
+      y: 0.305499
+      z: 0.953416
+    wrist_1_cog:
+      x: 0.282268
+      y: 0.384665
+      z: 0.929263
+    wrist_2_cog:
+      x: 0.470613
+      y: 0.384671
+      z: 0.816348
+    wrist_3_cog:
+      x: 0.57709700
+      y: 0.384592
+      z: 0.781865

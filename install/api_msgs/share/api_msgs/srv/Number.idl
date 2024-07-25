@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/Number.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct Number_Request {
+      int32 data;
+    };
+    struct Number_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

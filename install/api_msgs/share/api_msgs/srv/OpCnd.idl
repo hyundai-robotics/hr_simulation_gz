@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/OpCnd.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct OpCnd_Request {
+      int32 playback_mode;
+
+      int32 step_goback_max_spd;
+
+      int32 ucrd_num;
+    };
+    struct OpCnd_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

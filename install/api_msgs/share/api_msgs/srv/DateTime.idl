@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/DateTime.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct DateTime_Request {
+      int32 year;
+
+      int32 mon;
+
+      int32 day;
+
+      int32 hour;
+
+      int32 min;
+
+      int32 sec;
+    };
+    struct DateTime_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

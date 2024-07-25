@@ -1,0 +1,6 @@
+int32 n_item
+string cat_p
+int32 id_min
+int32 id_max
+string ts_min
+string ts_max

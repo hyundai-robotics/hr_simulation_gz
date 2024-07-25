@@ -1,0 +1,8 @@
+source;share/api_agent/hook/cmake_prefix_path.ps1
+source;share/api_agent/hook/cmake_prefix_path.dsv
+source;share/api_agent/hook/cmake_prefix_path.sh
+source;share/api_agent/local_setup.bash
+source;share/api_agent/local_setup.dsv
+source;share/api_agent/local_setup.ps1
+source;share/api_agent/local_setup.sh
+source;share/api_agent/local_setup.zsh

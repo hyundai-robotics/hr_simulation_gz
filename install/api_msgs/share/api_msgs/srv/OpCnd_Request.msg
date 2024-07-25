@@ -1,0 +1,3 @@
+int32 playback_mode
+int32 step_goback_max_spd
+int32 ucrd_num

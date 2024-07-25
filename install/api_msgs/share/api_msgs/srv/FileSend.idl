@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/FileSend.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct FileSend_Request {
+      string target_file;
+
+      string source_file;
+    };
+    struct FileSend_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

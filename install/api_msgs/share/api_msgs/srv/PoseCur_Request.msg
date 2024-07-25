@@ -1,0 +1,4 @@
+int32 task_no
+int32 crd
+int32 ucrd_no
+int32 mechinfo

@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/FileRename.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct FileRename_Request {
+      string pathname_from;
+
+      string pathname_to;
+    };
+    struct FileRename_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

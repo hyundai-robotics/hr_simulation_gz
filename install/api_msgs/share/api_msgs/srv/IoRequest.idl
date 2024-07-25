@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/IoRequest.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct IoRequest_Request {
+      string type;
+
+      int32 blk_no;
+
+      int32 sig_no;
+
+      int32 val;
+    };
+    struct IoRequest_Response {
+      string message;
+
+      int32 val;
+
+      boolean success;
+    };
+  };
+};
