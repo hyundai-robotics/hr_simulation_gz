@@ -1,4 +1,7 @@
 from api_msgs.srv._date_time import DateTime  # noqa: F401
+from api_msgs.srv._emergency import Emergency  # noqa: F401
+from api_msgs.srv._execute_cmd import ExecuteCmd  # noqa: F401
+from api_msgs.srv._execute_move import ExecuteMove  # noqa: F401
 from api_msgs.srv._file_list import FileList  # noqa: F401
 from api_msgs.srv._file_path import FilePath  # noqa: F401
 from api_msgs.srv._file_rename import FileRename  # noqa: F401

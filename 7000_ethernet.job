@@ -18,7 +18,6 @@
      msg=result()
      enet0.send msg
      print msg
-     #po=Pose(msg)
      onl.buf_in msg #Put the pose in the ‘po’ variable into the online.Traject buffer.
      goto 10
      end

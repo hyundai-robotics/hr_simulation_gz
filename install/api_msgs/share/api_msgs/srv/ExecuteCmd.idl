@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/ExecuteCmd.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct ExecuteCmd_Request {
+      sequence<string> cmd_line;
+    };
+    struct ExecuteCmd_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

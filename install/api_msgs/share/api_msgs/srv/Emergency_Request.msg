@@ -1,0 +1,4 @@
+int32   step_no
+int32   stop_at
+int32   stop_at_corner
+int32   category

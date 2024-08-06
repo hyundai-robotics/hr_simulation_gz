@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/Emergency.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct Emergency_Request {
+      int32 step_no;
+
+      int32 stop_at;
+
+      int32 stop_at_corner;
+
+      int32 category;
+    };
+    struct Emergency_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};

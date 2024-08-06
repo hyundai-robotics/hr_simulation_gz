@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from api_msgs/srv/ExecuteMove.srv
+// generated code does not contain a copyright notice
+
+
+module api_msgs {
+  module srv {
+    struct ExecuteMove_Request {
+      int32 task_no;
+
+      string stmt;
+    };
+    struct ExecuteMove_Response {
+      string message;
+
+      boolean success;
+    };
+  };
+};
