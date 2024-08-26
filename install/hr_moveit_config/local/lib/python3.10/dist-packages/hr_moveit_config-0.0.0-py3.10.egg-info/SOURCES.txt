@@ -1,7 +1,0 @@
-setup.py
-hr_moveit_config/__init__.py
-hr_moveit_config/launch_common.py
-hr_moveit_config.egg-info/PKG-INFO
-hr_moveit_config.egg-info/SOURCES.txt
-hr_moveit_config.egg-info/dependency_links.txt
-hr_moveit_config.egg-info/top_level.txt

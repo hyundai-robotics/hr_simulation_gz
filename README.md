@@ -54,26 +54,52 @@ This guide provides instructions for downloading and executing the ros2-humble-d
   git clone https://github.com/hyundai-robotics/hr_simulation_gz.git
   ```
 
-### dependency package install:
+### 2. Install Dependency Packages
 
-1. Download the required repositories and install package dependencies:
-    ```
-    cd  ~/ros2_ws/
-    rosdep update && rosdep install --ignore-src --from-paths src -y
-    ```
+#### 2.1 Install General Dependencies
 
-2. Run the project-specific dependency installation script:
-    ```
-    cd ~/ros2_ws/src/hr_simulation_gz
-    bash ros2-install-deps.sh
-    ```
+Download the required repositories and install package dependencies:
 
-### Configure and Build Workspace:
-  
-  ```
-  cd ~/ros2_ws
-  colcon build --symlink-install
-  ```
+```bash
+cd ~/ros2_ws/
+rosdep update && rosdep install --ignore-src --from-paths src -y
+```
+
+This command updates `rosdep` and automatically installs dependencies for all packages in the `src` folder.
+
+#### 2.2 Install Project-Specific Dependencies
+
+Run the project-specific dependency installation script:
+
+```bash
+cd ~/ros2_ws/src/hr_simulation_gz
+bash ros2-install-deps.sh
+```
+
+### 3. Configure and Install Workspace
+
+Finally, configure and install the workspace:
+
+```bash
+cd ~/ros2_ws/src/hr_simulation_gz
+cp install ~/ros2_ws/
+source ~/ros2_ws/install/setup.bash
+```
+
+Additionally, to use the simulation, you need to build the workspace using the following command:
+
+```bash
+cd ~/ros2_ws
+colcon build --symlink-install
+```
+
+This `colcon build` command builds all packages in the workspace and installs them using symbolic links. This allows changes in source files to take effect immediately without requiring a rebuild.
+
+After the build is complete, open a new terminal or run the following command in your current terminal to apply the updated environment:
+
+```bash
+source ~/ros2_ws/install/setup.bash
+```
 
 ## Running Executable
 
