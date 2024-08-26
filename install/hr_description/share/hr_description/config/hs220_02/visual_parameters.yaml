@@ -58,7 +58,8 @@ mesh_files:
         path: meshes/hs220_02/visual/arm_pipe.stl
       origin:
         xyz: [0, 0, 0]
-        rpy: [1.57079632679, 1.57079632679, 0]
+        # rpy: [1.57079632679, 1.57079632679, 0]
+        rpy: [0, 0, 0]
       material:
         name: "blue"
         color: "0 0.4 0.8 1"
@@ -68,7 +69,8 @@ mesh_files:
         path: meshes/hs220_02/collision/arm_pipe.stl
       origin:
         xyz: [0, 0, 0]
-        rpy: [1.57079632679, 1.57079632679, 0]
+        #rpy: [1.57079632679, 1.57079632679, 0]
+        rpy: [0, 0, 0]
     visual_offset: 0
 
   wrist_2:
@@ -78,7 +80,8 @@ mesh_files:
         path: meshes/hs220_02/visual/wrist_body.stl
       origin:
         xyz: [0, 0, 0]
-        rpy: [1.57079632679, 0, 0]
+        #rpy: [1.57079632679, 0, 0]
+        rpy: [0, 0, 0]
       material:
         name: "blue"
         color: "0 0.4 0.8 1"
@@ -88,7 +91,8 @@ mesh_files:
         path: meshes/hs220_02/collision/wrist_body.stl
       origin:
         xyz: [0, 0, 0]
-        rpy: [1.57079632679, 0, 0]
+        #rpy: [1.57079632679, 0, 0]
+        rpy: [0, 0, 0]
     visual_offset: 0
 
   wrist_3:
@@ -98,7 +102,8 @@ mesh_files:
         path: meshes/hs220_02/visual/flange.stl
       origin:
         xyz: [0, 0, 0]
-        rpy: [0, 1.57079632679, 0]
+        #rpy: [0, 1.57079632679, 0]
+        rpy: [0, 0, 0]
       material:
         name: "blue"
         color: "0 0.4 0.8 1"
@@ -108,5 +113,6 @@ mesh_files:
         path: meshes/hs220_02/collision/flange.stl
       origin:
         xyz: [0, 0, 0]
-        rpy: [0, 1.57079632679, 0]
+        #rpy: [0, 1.57079632679, 0]
+        rpy: [0, 0, 0]
     visual_offset: 0

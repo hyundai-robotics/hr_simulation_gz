@@ -68,3 +68,9 @@ hr_manipulator:
   ##Note: commenting the following line lets moveit chose RRTConnect as default planner rather than LBKPIECE
   #projection_evaluator: joints(shoulder_pan_joint,shoulder_lift_joint)
   longest_valid_segment_fraction: 0.001
+
+    # 컨베이어 벨트를 위한 새로운 플래너 설정 추가
+  ConveyorRRTConnectConfig:
+    type: geometric::RRTConnect
+    range: 0.1  # 컨베이어 벨트의 더 넓은 움직임 범위를 고려
+    goal_bias: 0.05

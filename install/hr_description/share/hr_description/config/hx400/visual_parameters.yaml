@@ -111,3 +111,73 @@ mesh_files:
         rpy: [0, 0, 0]
     visual_offset: 0
 
+  # Parallel Mechanism Components
+  hinge:
+    visual:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/visual/p_hinge.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/collision/p_hinge.stl
+    visual_offset: 0
+
+  v_link:
+    visual:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/visual/p_link.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/collision/p_link.stl
+    visual_offset: 0
+
+  b_shaft:
+    visual:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/visual/p_shaft.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/collision/p_shaft.stl
+    visual_offset: 0
+
+  b_tube:
+    visual:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/visual/p_tube.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/collision/p_tube.stl
+    visual_offset: 0
+    
+  b_weight:
+    visual:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/visual/p_cweight_400.stl
+      material:
+        name: "blue"
+        color: "0 0.4 0.8 1"
+    collision:
+      mesh:
+        package: hr_description
+        path: meshes/hx400/collision/p_cweight_400.stl
+    visual_offset: 0

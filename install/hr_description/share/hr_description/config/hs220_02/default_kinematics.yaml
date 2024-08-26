@@ -1,11 +1,15 @@
 kinematics:
   shoulder:
-    x:     0
-    y:     0
-    z:     0
-    roll:  0
-    pitch: 0
-    yaw:   0
+    x:      0
+    y:      0
+    z:      0
+    roll:   0
+    pitch:  0
+    yaw:    0
+    axis_x: 0
+    axis_y: 0
+    axis_z: 1
+
   upper_arm:
     x:     0.312
     y:     0
@@ -13,7 +17,10 @@ kinematics:
     roll:  -1.57079632
     pitch: 0
     yaw:   0
-    
+    axis_x: 0
+    axis_y: 0
+    axis_z: 1
+
   forearm:
     x:     -1.108
     y:     0
@@ -21,28 +28,43 @@ kinematics:
     roll:  0
     pitch: 0
     yaw:   0
+    axis_x: 0
+    axis_y: 0
+    axis_z: 1
+
   wrist_1:
     x:     -0.228
     y:     -1.238 
     z:     0.0485
-    roll:  -1.57079632 #roll 회전
-    pitch: -1.57079632
-    yaw:   0
+    roll:  -1.57079632 
+    pitch: 0
+    yaw:   -1.57079632
+    axis_x: 1
+    axis_y: 0
+    axis_z: 0
+
   wrist_2:
     x:     0
     y:     0
     z:     0
     roll:  0
-    pitch: 1.57079632 #Pitch회전
+    pitch: 0
     yaw:   0 
-    
+    axis_x: 0
+    axis_y: 1
+    axis_z: 0
+
   wrist_3:
-    x:     0.22
+    x:     0
     y:     0
     z:     0
     roll:  0
-    pitch: 1.57079632
-    yaw:   0 #roll 회전
+    pitch: 0
+    yaw:   0 
+    axis_x: 1
+    axis_y: 0
+    axis_z: 0
+
   hash: calib_1935737212149401527
 
 #이쪽이 회전하는 축을 변경하는 쪽

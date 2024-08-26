@@ -29,7 +29,8 @@ def launch_setup(context, *args, **kwargs):
     use_sim_time = LaunchConfiguration("use_sim_time")
     launch_rviz = LaunchConfiguration("launch_rviz")
     launch_servo = LaunchConfiguration("launch_servo")
-
+    use_conveyor_belt = LaunchConfiguration("use_conveyor_belt")
+    
     joint_limit_params = PathJoinSubstitution(
         [FindPackageShare(description_package), "config", hr_type, "joint_limits.yaml"]
     )
@@ -87,6 +88,8 @@ def launch_setup(context, *args, **kwargs):
             "prefix:=",
             prefix,
             " ",
+            "use_conveyor_belt:=",
+            use_conveyor_belt,  # 이 줄 추가
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -341,6 +344,14 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument("launch_servo", default_value="true", description="Launch Servo?")
+    )
+    
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "use_conveyor_belt",
+            default_value="false",
+            description="Enable the conveyor belt in the robot setup.",
+        )
     )
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])

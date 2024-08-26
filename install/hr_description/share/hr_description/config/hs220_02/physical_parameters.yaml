@@ -5,7 +5,7 @@ dh_parameters:
   a2: 1.1
   a3: 0.23
   d4: 1.25
-  #d5: 0.11985
+  d5: 0.0
   d6: 0.22
 
 #offsets do not exist

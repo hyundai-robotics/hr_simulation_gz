@@ -68,8 +68,8 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "hr_type",
             description="Type/series of used HR robot.",
-            choices=["ha006b", "hh7", "hh020", "hs220_02", "hx400", "yl012"],
-            default_value="hs220_02",
+            choices=["ha006b", "hh7", "hh020", "hs220_02", "hx400"],
+            default_value="ha006b",
         )
     )
     declared_arguments.append(

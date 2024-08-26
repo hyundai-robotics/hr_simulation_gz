@@ -16,14 +16,14 @@ mesh_files:
     visual:
       mesh:
         package: hr_description
-        path: meshes/hh020/visual/shoulder.stl
+        path: meshes/hh020/visual/lower_frame.stl
       material:
         name: "blue"
         color: "0 0.4 0.8 1"
     collision:
       mesh:
         package: hr_description
-        path: meshes/hh020/collision/shoulder.stl
+        path: meshes/hh020/collision/lower_frame.stl
 
   upper_arm:
     visual:
@@ -97,7 +97,7 @@ mesh_files:
         package: hr_description
         path: meshes/hh020/visual/flange.stl
       origin:
-        xyz: [0, 0, 0]
+        xyz: [-0.965, 0, 0]
         rpy: [0, 0, 0]
       material:
         name: "blue"
@@ -107,6 +107,6 @@ mesh_files:
         package: hr_description
         path: meshes/hh020/collision/flange.stl
       origin:
-        xyz: [0, 0, 0]
+        xyz: [-0.965, 0, 0]
         rpy: [0, 0, 0]
     visual_offset: 0

@@ -28,7 +28,8 @@ def launch_setup(context, *args, **kwargs):
     start_joint_controller = LaunchConfiguration("start_joint_controller")
     initial_joint_controller = LaunchConfiguration("initial_joint_controller")
     launch_rviz = LaunchConfiguration("launch_rviz")
-
+    use_conveyor_belt = LaunchConfiguration("use_conveyor_belt")
+    
     initial_joint_controllers = PathJoinSubstitution(
         [FindPackageShare(runtime_config_package), "config", controllers_file]
     )
@@ -67,6 +68,9 @@ def launch_setup(context, *args, **kwargs):
             " ",
             "simulation_controllers:=",
             initial_joint_controllers,
+            " ",
+            "use_conveyor_belt:=",
+            use_conveyor_belt,  # 이 줄 추가
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -159,7 +163,7 @@ def generate_launch_description():
             "hr_type",
             description="Type/series of used HR robot.",
             choices=["ha006b", "hh7", "hh020", "hs220_02", "hx400", "yl012"],
-            default_value="hs220_02",
+            default_value="hx400",
         )
     )
     declared_arguments.append(
@@ -239,6 +243,14 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "use_conveyor_belt",
+            default_value="false",
+            description="Enable the conveyor belt in the robot setup.",
+        )
     )
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
