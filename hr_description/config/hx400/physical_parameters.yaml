@@ -18,14 +18,14 @@ offsets:
 
 inertia_parameters:
   base_mass: 650.39  # This mass might be incorrect
-  shoulder_mass: 650.39
-  upper_arm_mass: 261.84
+  shoulder_mass: 952.6685
+  upper_arm_mass: 264.9059
   upper_arm_inertia_offset: 0.175 # measured from model (not used)
-  forearm_mass: 669.48
-  wrist_1_mass: 60.79
-  wrist_2_mass: 45.05
-  wrist_3_mass: 9.14
-
+  forearm_mass: 285.7996
+  wrist_1_mass: 68.7922
+  wrist_2_mass: 38.8935
+  wrist_3_mass: 9.7433
+  
   shoulder_radius: 0.060   
   upper_arm_radius: 0.054  
   elbow_radius: 0.060    
@@ -57,26 +57,26 @@ inertia_parameters:
 
   center_of_mass:
     shoulder_cog:
-      x: 0.1743
-      y: 0.0006
-      z: 0.6730
+      x: 0.1543
+      y: 0.0001
+      z: 0.6042
     upper_arm_cog:
-      x: 0.2995
-      y: 0.0174
-      z: 0.6730
+      x: 0.3084
+      y: 0.0163
+      z: 1.3509
     forearm_cog:
-      x: -0.4482
-      y: -0.0063
-      z: 0.9385
+      x: 0.7761
+      y: -0.0031
+      z: 2.0940
     wrist_1_cog:
-      x: 1.5119
-      y: -0.0534
-      z: 2.0997
-    wrist_2_cog:
-      x: 1.6712
-      y: -0.0141
-      z: 2.0998
-    wrist_3_cog:
-      x: 1.8200
-      y: 0.0000
+      x: 2.0364
+      y: -0.0639
       z: 2.1000
+    wrist_2_cog:
+      x: 2.2487
+      y: 0.0036
+      z: 2.1460
+    wrist_3_cog:
+      x: 2.3412
+      y: -0.0003
+      z: 2.1007

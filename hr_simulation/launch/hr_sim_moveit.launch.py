@@ -69,7 +69,7 @@ def generate_launch_description():
             "hr_type",
             description="Type/series of used HR robot.",
             choices=["ha006b", "hh7", "hh020", "hs220_02", "hx400"],
-            default_value="ha006b",
+            default_value="hx400",
         )
     )
     declared_arguments.append(

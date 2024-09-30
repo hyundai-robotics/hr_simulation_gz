@@ -89,7 +89,7 @@ def launch_setup(context, *args, **kwargs):
             prefix,
             " ",
             "use_conveyor_belt:=",
-            use_conveyor_belt,  # 이 줄 추가
+            use_conveyor_belt,  
         ]
     )
     robot_description = {"robot_description": robot_description_content}

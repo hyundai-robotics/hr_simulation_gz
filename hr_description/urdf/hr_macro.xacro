@@ -23,16 +23,16 @@
     sim_ignition:=false
     initial_positions:=${dict(shoulder_pan_joint=0.0,shoulder_lift_joint=-1.57,elbow_joint=0.0,wrist_1_joint=-1.57,wrist_2_joint=0.0,wrist_3_joint=0.0)}
     use_conveyor_belt:=false
+    use_hx_model:=false
     ">
 
-
-    <!-- Load configuration data from the provided .yaml files -->
     <xacro:read_model_data
       joint_limits_parameters_file="${joint_limits_parameters_file}"
       kinematics_parameters_file="${kinematics_parameters_file}"
       physical_parameters_file="${physical_parameters_file}"
       visual_parameters_file="${visual_parameters_file}"
-      force_abs_paths="${sim_gazebo or sim_ignition}"/>
+      force_abs_paths="${sim_gazebo or sim_ignition}"
+      use_hx_model="${use_hx_model}"/>
 
 
     <xacro:if value="${generate_ros2_control_tag}">
@@ -136,13 +136,11 @@
     </link>
     <link name="${tf_prefix}upper_arm_link">
       <visual>
-        <origin xyz="0 0 ${shoulder_offset}" rpy="${pi/2} 0 ${-pi/2}"/>
         <geometry>
           <xacro:get_mesh name="upper_arm" type="visual"/>
         </geometry>
       </visual>
       <collision>
-        <origin xyz="0 0 ${shoulder_offset}" rpy="${pi/2} 0 ${-pi/2}"/>
         <geometry>
           <xacro:get_mesh name="upper_arm" type="collision"/>
         </geometry>
@@ -153,13 +151,11 @@
     </link>
     <link name="${tf_prefix}forearm_link">
       <visual>
-        <origin xyz="0 0 ${elbow_offset}" rpy="${pi/2} 0 ${-pi/2}"/>
         <geometry>
           <xacro:get_mesh name="forearm" type="visual"/>
         </geometry>
       </visual>
       <collision>
-        <origin xyz="0 0 ${elbow_offset}" rpy="${pi/2} 0 ${-pi/2}"/>
         <geometry>
           <xacro:get_mesh name="forearm" type="collision"/>
         </geometry>
@@ -172,14 +168,12 @@
 	  <xacro:get_visual_params name="wrist_1" type="visual_offset"/>
       <visual>
         <xacro:get_origin name="wrist_1" type="visual" />
-      	<!-- <origin xyz="0 0 ${visual_params}" rpy="${pi/2} ${pi/2} 0"/> -->
         <geometry>
           <xacro:get_mesh name="wrist_1" type="visual"/>
         </geometry>
       </visual>
       <collision>
         <xacro:get_origin name="wrist_1" type="collision" />
-        <!-- <origin xyz="0 0 ${visual_params}" rpy="${pi/2} ${pi/2} 0"/>  -->
         <geometry>
           <xacro:get_mesh name="wrist_1" type="collision"/>
         </geometry>
@@ -192,14 +186,12 @@
 	  <xacro:get_visual_params name="wrist_2" type="visual_offset"/>
       <visual>
         <xacro:get_origin name="wrist_2" type="visual" />
-        <!-- <origin xyz="0 0 ${visual_params}" rpy="${pi/2} 0 0"/> -->
         <geometry>
           <xacro:get_mesh name="wrist_2" type="visual"/>
         </geometry>
       </visual>
       <collision>
         <xacro:get_origin name="wrist_2" type="collision" />
-        <!-- <origin xyz="0 0 ${visual_params}" rpy="${pi/2} 0 0"/> -->
         <geometry>
           <xacro:get_mesh name="wrist_2" type="collision"/>
         </geometry>
@@ -212,14 +204,12 @@
 	  <xacro:get_visual_params name="wrist_3" type="visual_offset"/>
       <visual>
         <xacro:get_origin name="wrist_3" type="visual" />
-        <!-- <origin xyz="0 0 ${visual_params}" rpy="0 ${pi/2} 0"/> -->
         <geometry>
           <xacro:get_mesh name="wrist_3" type="visual"/>
         </geometry>
       </visual>
       <collision>
         <xacro:get_origin name="wrist_3" type="collision" />
-        <!-- <origin xyz="0 0 ${visual_params}" rpy="0 ${pi/2}0"/> -->
         <geometry>
           <xacro:get_mesh name="wrist_3" type="collision"/>
         </geometry>
@@ -381,6 +371,107 @@
       <parent link="${tf_prefix}flange"/>
       <child link="${tf_prefix}tool0"/>
     </joint>
+    
+    <xacro:if value="${use_hx_model}">
+      <!-- hx model parrel link add -->
+      <link name="${tf_prefix}hinge_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="hinge" type="visual"/>
+          </geometry>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="hinge" type="collision"/>
+          </geometry>
+        </collision>
+      </link>
+      <link name="${tf_prefix}v_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="v_link" type="visual"/>
+          </geometry>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="v_link" type="collision"/>
+          </geometry>
+        </collision>
+      </link>
 
+      <joint name="${tf_prefix}upper_arm_to_hinge_joint" type="continuous">
+        <parent link="${tf_prefix}upper_arm_link" />
+        <child link="${tf_prefix}hinge_link" />
+        <origin xyz="${hinge_x} ${hinge_y} ${hinge_z}" rpy="${hinge_roll} ${hinge_pitch} ${hinge_yaw}" />
+        <axis xyz="${hinge_axis_x} ${hinge_axis_y} ${hinge_axis_z}" />
+        <mimic joint="${tf_prefix}elbow_joint" multiplier="1" offset="0"/>
+      </joint>
+      <joint name="${tf_prefix}foream_arm_to_v_link_joint" type="continuous">
+        <parent link="${tf_prefix}forearm_link" />
+        <child link="${tf_prefix}v_link" />
+        <origin xyz="${v_link_x} ${v_link_y} ${v_link_z}" rpy="${v_link_roll} ${v_link_pitch} ${v_link_yaw}" />
+        <axis xyz="${v_link_axis_x} ${v_link_axis_y} ${v_link_axis_z}" />
+        <mimic joint="${tf_prefix}elbow_joint" multiplier="0" offset="0"/>
+      </joint>
+      
+      <joint name="${tf_prefix}hinge_to_v_link" type="continuous">
+        <parent link="${tf_prefix}hinge_link" />
+        <child link="${tf_prefix}v_link" />
+        <origin xyz="${hinge_to_v_link_x} ${hinge_to_v_link_y} ${hinge_to_v_link_z}" rpy="${hinge_to_v_link_roll} ${hinge_to_v_link_pitch} ${hinge_to_v_link_yaw}" />
+        <axis xyz="${hinge_to_v_link_axis_x} ${hinge_to_v_link_axis_y} ${hinge_to_v_link_axis_z}" />
+        <mimic joint="${tf_prefix}elbow_joint" multiplier="-1" offset="0"/>
+      </joint>
+
+      <link name="${tf_prefix}p_tube_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="p_tube" type="visual"/>
+          </geometry>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="p_tube" type="collision"/>
+          </geometry>
+        </collision>
+      </link>
+      <link name="${tf_prefix}p_shaft_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="p_shaft" type="visual"/>
+          </geometry>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <xacro:get_mesh name="p_shaft" type="collision"/>
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name="${tf_prefix}p_tube_joint" type="continuous">
+        <parent link="${tf_prefix}upper_arm_link" />
+        <child link="${tf_prefix}p_tube_link" />
+        <origin xyz="${p_tube_x} ${p_tube_y} ${p_tube_z}" rpy="${p_tube_roll} ${p_tube_pitch} ${p_tube_yaw}" />
+        <axis xyz="${p_tube_axis_x} ${p_tube_axis_y} ${p_tube_axis_z}" />
+        <mimic joint="${tf_prefix}elbow_joint" multiplier="0.18" offset="0"/>
+      </joint>
+
+      <joint name="${tf_prefix}p_shaft_joint" type="continuous">
+        <parent link="${tf_prefix}shoulder_link" />
+        <child link="${tf_prefix}p_shaft_link" />
+        <origin xyz="${p_shaft_x} ${p_shaft_y} ${p_shaft_z}" rpy="${p_shaft_roll} ${p_shaft_pitch} ${p_shaft_yaw}" />
+        <axis xyz="${p_shaft_axis_x} ${p_shaft_axis_y} ${p_shaft_axis_z}" />
+        <mimic joint="${tf_prefix}elbow_joint" multiplier="1.18" offset="0"/>
+      </joint>
+
+    </xacro:if>
   </xacro:macro>
+
 </robot>

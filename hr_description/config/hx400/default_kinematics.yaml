@@ -1,5 +1,5 @@
 kinematics:
-  shoulder:  # base_to_a2_frame
+  shoulder:  
     x: 0
     y: 0
     z: 0
@@ -10,41 +10,52 @@ kinematics:
     axis_y: 0
     axis_z: 1
 
-  upper_arm:  # joint1
+  upper_arm:  
     x:      0.3
-    y:      0.143
+    y:      0
     z:      0.9
-    roll:   -1.5708 
-    pitch:  0
+    roll:   0
+    pitch:  -1.5708 
     yaw:    0
     axis_x: 0
-    axis_y: 0
-    axis_z: 1
+    axis_y: 1
+    axis_z: 0
 
-  forearm:  # joint2
-    x:      -1.0
+  forearm:  
+    x:      0
     y:      0
-    z:      0
+    z:      1.0
     roll:   0
     pitch:  0
     yaw:    0
     axis_x: 0
-    axis_y: 0
-    axis_z: 1
+    axis_y: 1
+    axis_z: 0
 
-  wrist_1:  # joint3
+  wrist_1:  
     x: 0
     y: 0
     z: 0.2
-    roll: -1.57079632 
+    roll:  0
     pitch: 0
-    yaw: -1.57079632
-    axis_x: 0
+    yaw:   0
+    axis_x: 1
     axis_y: 0
-    axis_z: 1
+    axis_z: 0
 
-  wrist_2:  # joint4
+  wrist_2:  
     x: 1.3
+    y: 0
+    z: 0
+    roll: 0
+    pitch: 0
+    yaw: 0
+    axis_x: 0
+    axis_y: 1
+    axis_z: 0
+
+  wrist_3: 
+    x: 0.258
     y: 0
     z: 0
     roll: 0
@@ -54,22 +65,11 @@ kinematics:
     axis_y: 0
     axis_z: 0
 
-  wrist_3:  # joint5
-    x: 0.258
-    y: 0
-    z: 0
-    roll: 0
-    pitch: 0
-    yaw: 0
-    axis_x: 0
-    axis_y: 0
-    axis_z: 1
-
   # Parallel mechanism joints
   hinge:
-    x: 0.3
+    x: 0
     y: 0
-    z: 0.9
+    z: 0
     roll: 0
     pitch: 0 
     yaw:   0
@@ -80,26 +80,37 @@ kinematics:
   v_link:
     x: -0.45
     y: 0
+    z: -1.0
+    roll: 0
+    pitch: 0
+    yaw: 0
+    axis_x: 0
+    axis_y: 1
+    axis_z: 0
+
+  hinge_to_v_link:
+    x: -0.45
+    y: 0
     z: 0
     roll: 0
     pitch: 0
     yaw: 0
     axis_x: 0
-    axis_y: 0
-    axis_z: 1
+    axis_y: 1
+    axis_z: 0
 
-  p_forearm:
-    x: 0.3
+  p_tube:
+    x: 0
     y: 0
-    z: 0.9
+    z: 1.0
     roll: 0
-    pitch: 0 
+    pitch: 0
     yaw:   0
     axis_x: 0
-    axis_y: 0
-    axis_z: 1
+    axis_y: -1
+    axis_z: 0
   
-  b_shaft:
+  p_shaft:
     x: 0.3
     y: 0
     z: 1.165
@@ -107,7 +118,7 @@ kinematics:
     pitch: 0
     yaw: 0
     axis_x: 0
-    axis_y: 0
-    axis_z: 1
+    axis_y: -1
+    axis_z: 0
 
   hash: calib_9122066269688285636

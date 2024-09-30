@@ -140,7 +140,7 @@ mesh_files:
         path: meshes/hx400/collision/p_link.stl
     visual_offset: 0
 
-  b_shaft:
+  p_shaft:
     visual:
       mesh:
         package: hr_description
@@ -154,7 +154,7 @@ mesh_files:
         path: meshes/hx400/collision/p_shaft.stl
     visual_offset: 0
 
-  b_tube:
+  p_tube:
     visual:
       mesh:
         package: hr_description
@@ -168,16 +168,3 @@ mesh_files:
         path: meshes/hx400/collision/p_tube.stl
     visual_offset: 0
     
-  b_weight:
-    visual:
-      mesh:
-        package: hr_description
-        path: meshes/hx400/visual/p_cweight_400.stl
-      material:
-        name: "blue"
-        color: "0 0.4 0.8 1"
-    collision:
-      mesh:
-        package: hr_description
-        path: meshes/hx400/collision/p_cweight_400.stl
-    visual_offset: 0

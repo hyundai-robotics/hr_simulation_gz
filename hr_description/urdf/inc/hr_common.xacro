@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:arg name="use_hx_model" default="false"/>
   <!--
     NOTE the macros defined in this file are NOT part of the public API of this
          package. Users CANNOT rely on this file being available, or stored in
@@ -49,7 +50,7 @@
   </xacro:macro>
 
 
-  <xacro:macro name="read_model_data" params="joint_limits_parameters_file kinematics_parameters_file physical_parameters_file visual_parameters_file force_abs_paths">
+  <xacro:macro name="read_model_data" params="joint_limits_parameters_file kinematics_parameters_file physical_parameters_file visual_parameters_file force_abs_paths use_hx_model">
 
     <xacro:property name="force_abs_paths" value="${force_abs_paths}" scope="parent"/>
     <!-- Read .yaml files from disk, load content into properties -->
@@ -162,9 +163,62 @@
     <xacro:property name="wrist_3_axis_y" value="${sec_kinematics['wrist_3']['axis_y']}" scope="parent"/>
     <xacro:property name="wrist_3_axis_z" value="${sec_kinematics['wrist_3']['axis_z']}" scope="parent"/>
 
+    <xacro:if value="${use_hx_model}">
+      <xacro:property name="hinge_x" value="${sec_kinematics['hinge']['x']}" scope="parent"/>
+      <xacro:property name="hinge_y" value="${sec_kinematics['hinge']['y']}" scope="parent"/>
+      <xacro:property name="hinge_z" value="${sec_kinematics['hinge']['z']}" scope="parent"/>
+      <xacro:property name="hinge_roll" value="${sec_kinematics['hinge']['roll']}" scope="parent"/>
+      <xacro:property name="hinge_pitch" value="${sec_kinematics['hinge']['pitch']}" scope="parent"/>
+      <xacro:property name="hinge_yaw" value="${sec_kinematics['hinge']['yaw']}" scope="parent"/>
+      <xacro:property name="hinge_axis_x" value="${sec_kinematics['hinge']['axis_x']}" scope="parent"/>
+      <xacro:property name="hinge_axis_y" value="${sec_kinematics['hinge']['axis_y']}" scope="parent"/>
+      <xacro:property name="hinge_axis_z" value="${sec_kinematics['hinge']['axis_z']}" scope="parent"/>
+
+      <xacro:property name="v_link_x" value="${sec_kinematics['v_link']['x']}" scope="parent"/>
+      <xacro:property name="v_link_y" value="${sec_kinematics['v_link']['y']}" scope="parent"/>
+      <xacro:property name="v_link_z" value="${sec_kinematics['v_link']['z']}" scope="parent"/>
+      <xacro:property name="v_link_roll" value="${sec_kinematics['v_link']['roll']}" scope="parent"/>
+      <xacro:property name="v_link_pitch" value="${sec_kinematics['v_link']['pitch']}" scope="parent"/>
+      <xacro:property name="v_link_yaw" value="${sec_kinematics['v_link']['yaw']}" scope="parent"/>
+      <xacro:property name="v_link_axis_x" value="${sec_kinematics['v_link']['axis_x']}" scope="parent"/>
+      <xacro:property name="v_link_axis_y" value="${sec_kinematics['v_link']['axis_y']}" scope="parent"/>
+      <xacro:property name="v_link_axis_z" value="${sec_kinematics['v_link']['axis_z']}" scope="parent"/>
+
+      <xacro:property name="hinge_to_v_link_x" value="${sec_kinematics['hinge_to_v_link']['x']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_y" value="${sec_kinematics['hinge_to_v_link']['y']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_z" value="${sec_kinematics['hinge_to_v_link']['z']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_roll" value="${sec_kinematics['hinge_to_v_link']['roll']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_pitch" value="${sec_kinematics['hinge_to_v_link']['pitch']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_yaw" value="${sec_kinematics['hinge_to_v_link']['yaw']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_axis_x" value="${sec_kinematics['hinge_to_v_link']['axis_x']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_axis_y" value="${sec_kinematics['hinge_to_v_link']['axis_y']}" scope="parent"/>
+      <xacro:property name="hinge_to_v_link_axis_z" value="${sec_kinematics['hinge_to_v_link']['axis_z']}" scope="parent"/>
+
+      <xacro:property name="p_tube_x" value="${sec_kinematics['p_tube']['x']}" scope="parent"/>
+      <xacro:property name="p_tube_y" value="${sec_kinematics['p_tube']['y']}" scope="parent"/>
+      <xacro:property name="p_tube_z" value="${sec_kinematics['p_tube']['z']}" scope="parent"/>
+      <xacro:property name="p_tube_roll" value="${sec_kinematics['p_tube']['roll']}" scope="parent"/>
+      <xacro:property name="p_tube_pitch" value="${sec_kinematics['p_tube']['pitch']}" scope="parent"/>
+      <xacro:property name="p_tube_yaw" value="${sec_kinematics['p_tube']['yaw']}" scope="parent"/>
+      <xacro:property name="p_tube_axis_x" value="${sec_kinematics['p_tube']['axis_x']}" scope="parent"/>
+      <xacro:property name="p_tube_axis_y" value="${sec_kinematics['p_tube']['axis_y']}" scope="parent"/>
+      <xacro:property name="p_tube_axis_z" value="${sec_kinematics['p_tube']['axis_z']}" scope="parent"/>
+
+      <xacro:property name="p_shaft_x" value="${sec_kinematics['p_shaft']['x']}" scope="parent"/>
+      <xacro:property name="p_shaft_y" value="${sec_kinematics['p_shaft']['y']}" scope="parent"/>
+      <xacro:property name="p_shaft_z" value="${sec_kinematics['p_shaft']['z']}" scope="parent"/>
+      <xacro:property name="p_shaft_roll" value="${sec_kinematics['p_shaft']['roll']}" scope="parent"/>
+      <xacro:property name="p_shaft_pitch" value="${sec_kinematics['p_shaft']['pitch']}" scope="parent"/>
+      <xacro:property name="p_shaft_yaw" value="${sec_kinematics['p_shaft']['yaw']}" scope="parent"/>
+      <xacro:property name="p_shaft_axis_x" value="${sec_kinematics['p_shaft']['axis_x']}" scope="parent"/>
+      <xacro:property name="p_shaft_axis_y" value="${sec_kinematics['p_shaft']['axis_y']}" scope="parent"/>
+      <xacro:property name="p_shaft_axis_z" value="${sec_kinematics['p_shaft']['axis_z']}" scope="parent"/>
+    </xacro:if>
+
     <!-- OFFSETS -->
     <xacro:property name="shoulder_offset" value="${sec_offsets['shoulder_offset']}" scope="parent"/>
     <xacro:property name="elbow_offset" value="${sec_offsets['elbow_offset']}" scope="parent"/>
+
 
     <!-- INERTIA PARAMETERS -->
     <!-- mass -->
